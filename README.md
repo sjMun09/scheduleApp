@@ -9,6 +9,8 @@
 - validation
 - properties 말고 yml 사용
 - Swagger
-
+- Spring Boot 3.4.2
+- Java 17
+- gradle
 
 <hr>
