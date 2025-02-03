@@ -41,4 +41,21 @@ public class ScheduleController {
         return ResponseEntity.ok(scheduleService.getScheduleById(id));
     }
 
+    @PutMapping("/{id}")
+    @Operation(summary = "일정 수정", description = "선택한 일정의 내용을 수정합니다. (비밀번호 필요)")
+    public ResponseEntity<ScheduleResponse> updateSchedule(
+            @Parameter(description = "일정 ID") @PathVariable Long id,
+            @RequestBody ScheduleRequest request) {
+        return ResponseEntity.ok(scheduleService.updateSchedule(id, request));
+    }
+
+    @DeleteMapping("/{id}")
+    @Operation(summary = "일정 삭제", description = "선택한 일정을 삭제합니다. (비밀번호 필요)")
+    public ResponseEntity<Void> deleteSchedule(
+            @Parameter(description = "일정 ID") @PathVariable Long id,
+            @RequestParam String password) {
+        scheduleService.deleteSchedule(id, password);
+        return ResponseEntity.noContent().build();
+    }
+
 }
