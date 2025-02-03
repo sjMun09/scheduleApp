@@ -3,6 +3,8 @@ package com.example.scheduleApp.service;
 import com.example.scheduleApp.dto.ScheduleRequest;
 import com.example.scheduleApp.dto.ScheduleResponse;
 import com.example.scheduleApp.entity.Schedule;
+import com.example.scheduleApp.exception.InvalidPasswordException;
+import com.example.scheduleApp.exception.ScheduleNotFoundException;
 import com.example.scheduleApp.repository.ScheduleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -50,10 +52,10 @@ public class ScheduleService {
     @Transactional
     public ScheduleResponse updateSchedule(Long id, ScheduleRequest request) {
         Schedule schedule = scheduleRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("해당 ID의 일정이 존재하지 않습니다."));
+                .orElseThrow(() -> new ScheduleNotFoundException("해당 ID의 일정이 존재하지 않습니다."));
 
         if (!schedule.getPassword().equals(request.getPassword())) {
-            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
+            throw new InvalidPasswordException("비밀번호가 일치하지 않습니다.");
         }
 
         schedule.update(request.getTodo(), request.getWriter());
