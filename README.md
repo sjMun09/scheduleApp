@@ -1,8 +1,8 @@
 # scheduleApp
 
-### 1️⃣ 프로젝트 세팅
+## 1️⃣ 프로젝트 세팅
 Spring Web,
-MySQL Driver,
+MySQL Driver(mySQL8.0.23),
 Lombok,
 Spring Boot 3.4.2, Java 17,
 Spring Boot DevTools,
@@ -12,7 +12,7 @@ MySQL 연결 설정, Swagger, gradle,
 JPA 설정 (spring.jpa.hibernate.ddl-auto=update 초기 개발 단계에서 설정),
 포트 및 기타 환경 설정
 
-### 2️⃣ API 명세서 작성
+## 2️⃣ API 명세서 작성
 프로젝트 root(README.md)에 Postman 또는 Swagger 기반으로 API 명세 작성
 Request 및 응답 Response JSON 예시 포함
 
@@ -60,13 +60,18 @@ Request 및 응답 Response JSON 예시 포함
   "password": "1234"
 }
 ```
-### 3️⃣ ERD 설계
-ERDCloud 또는 Draw.io를 활용하여 ERD 설계
+## 3️⃣ 다이어그램
+### ERD 다이어그램
+![image](https://github.com/user-attachments/assets/3a246311-a706-4deb-8a20-937d50aba157)
+
+### 시퀀스 다이어그램
+![image](https://github.com/user-attachments/assets/f762fd27-f4e9-410f-8bac-1c4bc06767ab)
+
+### 클래스 다이어그램
+![image](https://github.com/user-attachments/assets/9b27c4ab-7a55-4e7c-9966-85bd20888bf6)
 
 
-
-
-### 4️⃣ SQL 작성
+## 4️⃣ SQL 작성
 schedule.sql 파일에 테이블 생성 쿼리 작성
 
 ```
@@ -107,7 +112,7 @@ Users
 그러나 리팩토링 과정에서 jwt 기반 인증을 추가하여 보안을 강화할 예정입니다.
 이를 통해 비밀번호 기반 인증을 제거하고, 인가 과정을 추가할 예정입니디.
 
-#### 리팩토링시 주요 변경 사항
+### 리팩토링시 주요 변경 사항
 1. JWT 기반 사용자 인증 적용
 - 일정 생성, 수정, 삭제 시 사용자가 JWT를 포함하여 요청해야 함.
 - 일정 조회는 공개된 일정만 가능하며, 비공개 일정 조회 시 JWT 필요.
