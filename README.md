@@ -119,3 +119,8 @@ Users
 3. Access Token & Refresh Token 적용
 - Access Token을 활용하여 사용자 인증
 - Refresh Token을 도입하여 토큰 만료 시 재발급 처리
+
+
+### 트러블 슈팅
+지속적으로 해결 및 수정해나가는 중입니다.
+https://velog.io/@ohoh7391/ScheduleApp
