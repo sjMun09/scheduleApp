@@ -1,39 +1,18 @@
 # scheduleApp
 
-### 프로젝트 세팅
-- Spring web
-- JPA
-- MySQL Driver
-- Lombok
-- Spring Boot DevTools
-- validation
-- properties 말고 yml 사용
-- Swagger
-- Spring Boot 3.4.2
-- Java 17
-- gradle
-
-<hr>
-
-
-이 프로젝트를 기반으로 Spring Boot와 MySQL을 활용하여 일정 관리 시스템을 구축할 수 있도록, 다음과 같은 구조로 진행하면 될 것 같습니다.
-
-1️⃣ 프로젝트 세팅
-Spring Boot 프로젝트 생성
-
-Spring Web
-Spring Data JPA
-MySQL Driver
-Lombok
-Spring Boot DevTools
-Validation
-application.yml 설정
-
-MySQL 연결 설정
-JPA 설정 (spring.jpa.hibernate.ddl-auto=update 초기 개발 단계에서 설정)
+### 1️⃣ 프로젝트 세팅
+Spring Web,
+MySQL Driver,
+Lombok,
+Spring Boot 3.4.2, Java 17,
+Spring Boot DevTools,
+Validation,
+yml 사용,
+MySQL 연결 설정, Swagger, gradle, 
+JPA 설정 (spring.jpa.hibernate.ddl-auto=update 초기 개발 단계에서 설정),
 포트 및 기타 환경 설정
 
-2️⃣ API 명세서 작성
+### 2️⃣ API 명세서 작성
 프로젝트 root(README.md)에 Postman 또는 Swagger 기반으로 API 명세 작성
 Request 및 응답 Response JSON 예시 포함
 
@@ -81,14 +60,14 @@ Request 및 응답 Response JSON 예시 포함
   "password": "1234"
 }
 ```
-3️⃣ ERD 설계
+### 3️⃣ ERD 설계
 ERDCloud 또는 Draw.io를 활용하여 ERD 설계
 
 
 
-4️⃣ SQL 작성
+
+### 4️⃣ SQL 작성
 schedule.sql 파일에 테이블 생성 쿼리 작성
-sql
 
 ```
 CREATE TABLE schedule (
@@ -100,6 +79,14 @@ CREATE TABLE schedule (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 ```
+
+(리팩토링시)
+Users 
+- userId (PK)
+- username
+- email
+- password
+
 
 <hr>
 
