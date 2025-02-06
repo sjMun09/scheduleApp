@@ -19,19 +19,20 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name ="todo", nullable = false, length = 20)
-    private String task;
+    @Column(name ="task", nullable = false, length = 200, columnDefinition = "VARCHAR(200) DEFAULT '기본값'")
+    private String task = "기본값";
 
-    @Column(name="writer", nullable = false)
-    private String authorName;
+    @ManyToOne // author_id로 외래 키 설정
+    @JoinColumn(name="author_id", nullable = false)
+    private Author author;
 
     @Column(nullable = false)
     private String password;
 
-    @Column(name="created_at", nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(name="updated_at", nullable = false)
+    @Column(nullable = false)
     private LocalDateTime updatedAt;
 
     @PrePersist

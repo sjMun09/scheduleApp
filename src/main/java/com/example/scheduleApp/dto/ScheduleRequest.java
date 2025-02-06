@@ -1,13 +1,15 @@
 package com.example.scheduleApp.dto;
 
-import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Schema(description = "일정 생성 요청 DTO")
 public class ScheduleRequest {
+    @NotBlank(message = "Task cannot be empty")
+    private String task;
 
-
+    @NotBlank(message = "Password cannot be empty")
+    private String password;
 }
