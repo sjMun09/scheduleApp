@@ -1,4 +1,4 @@
-# scheduleApp
+# scheduleApp - JPA/ 일정 관리 앱
 
 ## 1️⃣ 프로젝트 세팅
 Spring Web,
