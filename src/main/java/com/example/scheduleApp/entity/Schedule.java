@@ -1,47 +1,48 @@
 package com.example.scheduleApp.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@Setter
+@AllArgsConstructor
 @NoArgsConstructor
 public class Schedule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // 일정 ID (PK)
+    private Long id;
 
-    @Column(nullable = false)
-    private String todo;
+    @Column(name ="todo", nullable = false, length = 20)
+    private String task;
 
-    @Column(nullable = false)
-    private String writer;
+    @Column(name="writer", nullable = false)
+    private String authorName;
 
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    @Column(name="created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
-    @Column(nullable = false)
+    @Column(name="updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-
-    public Schedule(String todo, String writer, String password) {
-        this.todo = todo;
-        this.writer = writer;
-        this.password = password;
+    @PrePersist
+    protected void onCreate() {
         this.createdAt = LocalDateTime.now();
-        this.updatedAt = this.createdAt;
-    }
-
-    public void update(String todo, String writer) {
-        this.todo = todo;
-        this.writer = writer;
         this.updatedAt = LocalDateTime.now();
     }
+
+    @PreUpdate
+    protected void onUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
 }
